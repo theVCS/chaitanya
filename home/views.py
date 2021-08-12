@@ -2,4 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return render(request,"homes/home.html")
+    context = {
+        "title": "Chaitanya - vision to impart knowledge"
+    }
+    return render(request,"homes/home.html", context)
