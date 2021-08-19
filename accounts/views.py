@@ -1,3 +1,4 @@
+from collections import UserList
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
@@ -5,9 +6,10 @@ from . mailer import send_mail
 from django.apps import apps
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from profiles.forms import ProfileForm
+from django.contrib.auth.models import User
+from django.template.loader import render_to_string
+
+# Create your views here.
 
 Profile = apps.get_model('profiles', 'Profile')
 
@@ -20,8 +22,10 @@ def home(request):
 
 
 def checkUserName(request):
-    userName = request.POST.get("userName")
-    cnt = 0  # find number of users from database having username as userName
+    username = request.POST.get("username")
+    cnt = 0
+    if User.objects.filter(username=username).exists():
+        cnt = 1
     data = json.dumps({
         'cnt': cnt,
     })
@@ -29,32 +33,26 @@ def checkUserName(request):
 
 
 def createAccount(request):
-    print(request.POST)
-    # if request.method == 'POST':
-        # user_form = UserCreationForm(request.POST)
-        # profile_form = ProfileForm(request.POST)
-        # print(user_form)
-        # if user_form.is_valid() and profile_form.is_valid():
-            # user = user_form.save()
-            # user.save()
-            # first_name = profile_form.cleaned_data['first_name']
-            # last_name = profile_form.cleaned_data['last_name']
-            # email_id = profile_form.cleaned_data['email_id']
-            # phone_number = profile_form.cleaned_data['phone_number']
-            # resume = profile_form.cleaned_data['resume']
-            # profile = Profile.objects.create(
-            #     user=user, first_name=first_name, last_name=last_name, email_id=email_id, phone_number=phone_number)
-            # profile.save()
-            # username = user_form.cleaned_data['username']
-            # password = user_form.cleaned_data['password1']
-            # user = authenticate(username=username, password=password)
-            # login(request, user)
-            # return HttpResponseRedirect(reverse('accounts/'))
-        # context = {'user_form': user_form, 'profile_form': profile_form}
-        # return render(request, 'accounts/', context)
-    # else:
-        # user_form = UserCreationForm()
-        # profile_form = ProfileForm()
-        # context = {'user_form': user_form, 'profile_form': profile_form}
-        return render(request, 'accounts/')
-        # return render(request, 'accounts/', context)
+    if request.method == 'POST':
+        user_form = UserCreationForm(request.POST)
+        user = user_form.save()
+        user.save()
+        firstName = request.POST.get('firstName')
+        lastName = request.POST.get('lastName')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        resume = request.FILES['resume']
+        profile = Profile.objects.create(
+            user=user, firstName=firstName, lastName=lastName, email=email, phone=phone, resume=resume)
+        profile.save()
+        message = render_to_string('../templates/accounts/email_template.html', {
+            'title': "You are now a member",
+        })
+        send_mail("Thanks for joining Chaintanya", message, [email,])
+        username = user_form.cleaned_data['username']
+        password = user_form.cleaned_data['password1']
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        return render(request, 'accounts/home.html', {"title": "Chaitanya - vision to impart knowledge"})
+    else:
+        return render(request, 'accounts/home.txt', {"title": "Chaitanya - vision to impart knowledge"})

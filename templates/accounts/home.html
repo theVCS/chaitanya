@@ -371,9 +371,9 @@
 				</div>
 			</div>
 
-			<div class="col-lg-8 col-md-12 m-b30">
-				<form class="inquiry-form wow fadeInUp" data-wow-delay="0.2s" action="createAccount/" method="POST"
-					onsubmit="return VerifyData();" enctype="multipart/form-data">
+			<div class="col-lg-8 col-md-12 m-b30" id="form_container">
+				<form class="inquiry-form wow fadeInUp" data-wow-delay="0.2s" action="/accounts/createAccount/"
+					method="POST" enctype="multipart/form-data" onsubmit="return VerifyData();">
 					{% csrf_token %}
 					<h3 class="title-box font-weight-300 m-t0 m-b10">SIGNUP <span class="bg-primary"></span></h3>
 					<p>CREATE NEW ACCOUNT FROM HERE</p>
@@ -381,8 +381,8 @@
 
 						<!-- username -->
 						<div class="col-lg-12 col-md-12">
-							<div class="form-group">
-								<div class="input-group">
+							<div class="form-group" id="div_id_name">
+								<div class="input-group" id="div_id_username">
 									<span class="input-group-addon"><i class="ti-star text-primary"></i></span>
 									<input name="username" type="text" required class="form-control"
 										placeholder="User Name" id="id_username">
@@ -393,7 +393,7 @@
 						<!-- password -->
 						<div class="col-lg-6 col-md-6">
 							<div class="form-group">
-								<div class="input-group">
+								<div class="input-group" id="div_id_password1">
 									<span class="input-group-addon"><i class="ti-lock text-primary"></i></span>
 									<input name="password1" type="password" required class="form-control"
 										placeholder="Password" id="id_password1">
@@ -406,7 +406,7 @@
 						<!-- confirm password -->
 						<div class="col-lg-6 col-md-6">
 							<div class="form-group">
-								<div class="input-group">
+								<div class="input-group" id="div_id_password2">
 									<span class="input-group-addon"><i class="ti-lock text-primary"></i></span>
 									<input name="password2" type="password" required class="form-control"
 										placeholder="Confirm Password" id="id_password2">
@@ -419,10 +419,10 @@
 						<!-- first name -->
 						<div class="col-lg-6 col-md-6">
 							<div class="form-group">
-								<div class="input-group">
+								<div class="input-group" id="div_id_firstName">
 									<span class="input-group-addon"><i class="ti-user text-primary"></i></span>
 									<input name="firstName" type="text" required class="form-control"
-										placeholder="First Name" id="firstName_id">
+										placeholder="First Name" id="id_firstName">
 								</div>
 							</div>
 						</div>
@@ -430,9 +430,10 @@
 						<!-- last name -->
 						<div class="col-lg-6 col-md-6">
 							<div class="form-group">
-								<div class="input-group">
+								<div class="input-group" id="div_id_lastName">
 									<span class="input-group-addon"><i class="ti-user text-primary"></i></span>
-									<input name="lastName" type="text" class="form-control" placeholder="Last Name" id="lastName_id">
+									<input name="lastName" type="text" class="form-control" placeholder="Last Name"
+										id="id_lastName">
 								</div>
 							</div>
 						</div>
@@ -440,10 +441,10 @@
 						<!-- email address -->
 						<div class="col-lg-6 col-md-6">
 							<div class="form-group">
-								<div class="input-group">
+								<div class="input-group" id="div_id_email">
 									<span class="input-group-addon"><i class="ti-email text-primary"></i></span>
 									<input name="email" type="email" class="form-control" required
-										placeholder="Your Email Id" id="email_id">
+										placeholder="Your Email Id" id="id_email">
 								</div>
 							</div>
 						</div>
@@ -451,9 +452,10 @@
 						<!-- phone number -->
 						<div class="col-lg-6 col-md-6">
 							<div class="form-group">
-								<div class="input-group">
+								<div class="input-group" id="div_id_phone">
 									<span class="input-group-addon"><i class="ti-mobile text-primary"></i></span>
-									<input name="phone" type="tel" class="form-control" required placeholder="Phone" id="phone_id">
+									<input name="phone" type="tel" class="form-control" required placeholder="Phone"
+										id="id_phone">
 								</div>
 							</div>
 						</div>
@@ -461,10 +463,10 @@
 						<!-- resume -->
 						<div class="col-lg-12 col-md-12">
 							<div class="form-group">
-								<div class="input-group">
+								<div class="input-group" id="div_id_resume">
 									<span class="input-group-addon"><i class="ti-file text-primary"></i></span>
 									<input name="resume" type="file" required class="form-control"
-										placeholder="Upload File" id="resume_id">
+										placeholder="Upload File" id="id_resume">
 								</div>
 							</div>
 						</div>
@@ -616,9 +618,29 @@
 
 <script>
 	function VerifyData() {
+		// username verification
 		let userName = document.getElementsByName("username")[0].value;
-		response = JSON.parse(ajaxRequest("checkUserName/", {
-			"userName": userName
+
+		if(userName.length>150)
+		{
+			alert("username must be less than 150 characters");
+			return false;
+		}
+
+		for (let index = 0; index < userName.length; index++) {
+			const element = userName[index];
+			
+			if((element>='a' && element<='z') || (element>='A' && element <= 'Z') || (element >= 0 && element <= 9) || element == '@' || element == '.' ||  element == '+' ||  element == '-' || element == '_')
+			{
+				continue;
+			}
+
+			alert("username can contain letters, digits, @, ., +, -, _ only");
+			return false;
+		}
+
+		response = JSON.parse(ajaxRequest("/accounts/checkUserName/", {
+			"username": userName,
 		}));
 
 
@@ -627,14 +649,37 @@
 			return false;
 		}
 
+		// password verification
 		let pass1 = document.getElementsByName("password1")[0].value;
 		let pass2 = document.getElementsByName("password2")[0].value;
+		
+		if(pass1.length<8)
+		{
+			alert("Your password must contain at least 8 characters.");
+			return false;
+		}
+
+		flag = true;
+
+		for (let index = 0; index < pass1.length; index++) {
+			const element = pass1[index];
+			
+			if(element>=0 && element<=9)continue;
+			else flag=false;
+		}
+
+		if(flag)
+		{
+			alert("Your password can’t be entirely numeric");
+			return false;
+		}
 
 		if (pass1 != pass2) {
 			alert("Passwords are different");
 			return false;
 		}
-
+		
+		// file verification
 		var size = (document.getElementsByName("resume")[0].files[0].size / 1024);
 
 		if (size > 300) {
@@ -642,6 +687,15 @@
 			return false;
 		}
 
+		var filename = document.getElementsByName("resume")[0].files[0].name;
+		extension = filename.split('.').pop();
+		
+		if(extension!="pdf")
+		{
+			alert("only pdf format files are accepted");
+			return false;
+		}
+		
 		return true;
 	}
 
