@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
 
 # Create your views here.
-def index(request):
-    return HttpResponse("this is Blogs")
+def home(request):
+    return render(request,"blog/home.html")
