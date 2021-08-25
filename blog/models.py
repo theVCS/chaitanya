@@ -26,7 +26,7 @@ class Blog(models.Model):
 
 class Comment(models.Model):
     blogId = models.ForeignKey(Blog, on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="owner")
     details = models.TextField(verbose_name="Details")
     time = models.DateTimeField(default=datetime.now)
 
