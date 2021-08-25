@@ -370,7 +370,12 @@
                                     <div class="comment-meta"> <a href="javascript:void(0);">{{comment.time|date:"F" }} {{comment.time.day}}, {{comment.time.year}} at {{comment.time.time}}
                                             </a> </div>
                                     <p>{{comment.details}}</p>
+                                    
+                                    {%if user.is_authenticated%}
+                                    {%if user == blog.owner%}
                                     <div class="reply"> <a href="/blogs/deleteComment?id={{comment.id}}&blogId={{blogId}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a> </div>
+                                    {%endif%}
+                                    {%endif%}
                                 </div>
                             </li>
                             {%endfor%}
