@@ -50,6 +50,8 @@ def resetPass(request):
     user = User.objects.get(username=username)
     user.set_password(password)
     user.save()
+    user = authenticate(username=username, password=password)
+    login(request, user)
     return render(request, "home/home.html")
 
 
