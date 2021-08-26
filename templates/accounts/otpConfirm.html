@@ -1,0 +1,211 @@
+{% extends 'accounts/basic.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+
+
+{% block css %}{%endblock%}
+
+{%block header%}
+<header class="site-header mo-left header">
+    <div class="sticky-header main-bar-wraper header-curve navbar-expand-lg">
+        <div class="main-bar clearfix bg-primary">
+            <div class="container clearfix">
+                <!-- website logo -->
+                <div class="logo-header mostion">
+                    <a href="/"><img src="{%static 'images/logo.png'%}" alt=""></a>
+                </div>
+
+                <!-- main nav -->
+                <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+                    <div class="logo-header d-md-block d-lg-none">
+                        <a href="/"><img src="{%static 'images/logo.png'%}" alt=""></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li> <a href="/">Home</a></li>
+                        <li> <a href="/blogs">Blogs</a></li>
+                        <li> <a href="/newsletters">Newsletters</a></li>
+                        {%if user.is_authenticated%}
+                        <li> <a href="/accounts/logout">Logout</a></li>
+                        {%else%}
+                        <li> <a href="/accounts/login">Login</a></li>
+                        {%endif%}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{%endblock%}
+
+
+{% block body%}
+<div class="section-full content-inner contact-page-8 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 m-b30">
+                        <div class="icon-bx-wraper expertise bx-style-1 p-a20 radius-sm">
+                            <div class="icon-content">
+                                <h5 class="dlab-tilte">
+                                    <span class="icon-sm text-primary"><i class="ti-location-pin"></i></span>
+                                    NIT, JALANDHAR
+                                </h5>
+                                <p>Grand Trunk Road, Barnala - Amritsar Bypass Rd, Jalandhar, Punjab 144011 / India </p>
+                                <h6 class="m-b15 text-black font-weight-400"><i class="ti-alarm-clock"></i> Office Hours
+                                </h6>
+                                <p class="m-b0">Mon To Sun - 24 Hr</p>
+                                <p>National Holidays - Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-6 m-b30">
+                        <div class="icon-bx-wraper expertise bx-style-1 p-a20 radius-sm">
+                            <div class="icon-content">
+                                <h5 class="dlab-tilte">
+                                    <span class="icon-sm text-primary"><i class="ti-email"></i></span>
+                                    E-mail
+                                </h5>
+                                <p class="m-b0">webmaster@nitj.ac.in</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-6 m-b30">
+                        <div class="icon-bx-wraper expertise bx-style-1 p-a20 radius-sm">
+                            <div class="icon-content">
+                                <h5 class="dlab-tilte">
+                                    <span class="icon-sm text-primary"><i class="ti-mobile"></i></span>
+                                    Phone Numbers
+                                </h5>
+                                <p class="m-b0">+91-181-2690324</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-12 m-b30" id="form_container">
+                <form class="inquiry-form wow fadeInUp" data-wow-delay="0.2s" action="/accounts/addUser/" method="POST"
+                    enctype="multipart/form-data" onsubmit="return VerifyOTP();">
+                    {% csrf_token %}
+                    <h3 class="title-box font-weight-300 m-t0 m-b10">CONFIRM OTP <span class="bg-primary"></span></h3>
+                    <p>AN OTP HAS BEEN SENT TO YOUR EMAIL - <b> {{email}}</b></p>
+                    <p>It may also sent to your spam box</p>
+                    <div class="row">
+                        <input name="username" type="text" required class="form-control" placeholder="User Name"
+                            id="id_username" value="{{username}}" style="display: none;">
+                        <input name="password1" type="password" required class="form-control" placeholder="Password"
+                            id="id_password1" value="{{password}}" style="display: none;">
+                        <input name="password2" type="password" required class="form-control" placeholder="Password"
+                            id="id_password1" value="{{password}}" style="display: none;">
+                        <input name="firstName" type="text" required class="form-control" placeholder="First Name"
+                            id="id_firstName" value="{{firstName}}" style="display: none;">
+                        <input name="lastName" type="text" class="form-control" placeholder="Last Name" id="id_lastName"
+                            value="{{lastName}}" style="display: none;">
+                        <input name="email" type="email" class="form-control" required placeholder="Your Email Id"
+                            id="id_email" value="{{email}}" style="display: none;">
+                        <input name="phone" type="tel" class="form-control" required placeholder="Phone" id="id_phone"
+                            value="{{phone}}" style="display: none;">
+
+                        <!-- resume -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <div class="input-group" id="div_id_resume">
+                                    <span class="input-group-addon"><i class="ti-file text-primary"></i></span>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <input name="resume" type="file" required class="form-control"
+                                        placeholder="Upload Resume" id="id_resume">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- otp number -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <div class="input-group" id="div_id_phone">
+                                    <span class="input-group-addon"><i class="ti-key text-primary"></i></span>
+                                    <input name="otp" type="text" class="form-control" required placeholder="OTP"
+                                        id="id_otp">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <button name="submit" type="submit" value="Submit" class="site-button button-md">
+                                <span>Confirm OTP!</span> </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+
+{% block footer%}
+<!-- Footer -->
+<footer class="site-footer footer-full">
+    <div class="p-tb60 bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-md-left text-center footer-logo">
+                    <img src="{%static 'images/logo.png'%}" alt="" width="100">
+                    <p class="m-b0 m-t10">Copyright © 2021</p>
+                </div>
+                <div class="col-md-6 text-md-right text-center">
+                    <div class="widget-link ">
+                        <ul>
+                            <li><a href="javascript:void(0);">Home</a></li>
+                            <li><a href="javascript:void(0);">About us</a></li>
+                            <li><a href="javascript:void(0);">Help Desk</a></li>
+                            <li><a href="javascript:void(0);">Privacy Policy</a></li>
+                            <li><a href="javascript:void(0);">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer END -->
+{%endblock%}
+
+
+
+{% block script %}
+<script>
+    $('#id_resume').inputFileText({
+        text: 'Select Resume'
+    });
+
+    function VerifyOTP() {
+        var size = (document.getElementsByName("resume")[0].files[0].size / 1024);
+
+        if (size > 300) {
+            alert("resume size must be less than 300kb");
+            return false;
+        }
+
+        var filename = document.getElementsByName("resume")[0].files[0].name;
+        extension = filename.split('.').pop();
+
+        if (extension != "pdf") {
+            alert("only pdf format files are accepted");
+            return false;
+        }
+
+        let OTP = `{{otp}}`
+        let otp = document.getElementById("id_otp").value
+        
+        if (otp != OTP) {
+            alert("OTP is not correct");   
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+{%endblock%}

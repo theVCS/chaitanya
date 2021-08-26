@@ -9,7 +9,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     firstName = models.CharField(max_length=30, verbose_name='First Name')
     lastName = models.CharField(blank=True, max_length=30, verbose_name='Last Name')
-    email = models.EmailField(blank=True, verbose_name='Email ID')
+    email = models.EmailField(unique=True, verbose_name='Email ID')
     phone = models.CharField(max_length=13)
     resume = models.FileField(upload_to="media/resume")
 
