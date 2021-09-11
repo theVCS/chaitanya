@@ -44,13 +44,20 @@
     
     .fakeimg {
 			width: 100%;
-			padding: 20px;
+			/* padding: 20px; */
 		}
   .logoimg
   {
-    background-image: url("../images/home/logo_back.jpg");
+    /* background-image: url("../images/home/logo_back.jpg"); */
     border-radius: 11px;
     box-shadow: 5px 5px 13px 4px rgb(203 194 194);
+  }
+  .logoimg img{
+      border-style: none;
+      height: 100%;
+      max-width: 100%;
+      vertical-align: middle;
+      border-radius: 13px;
   }
   .welcome-text {
     font-size: 12px;
