@@ -43,7 +43,7 @@ def resetAccount(request):
     print(otp)
     print(email)
     print(context["username"])
-    send_mail("Reset Password From Chaitanya", "Your previous username is {} and otp is {}".format(context["username"], otp), [email, ])
+    send_mail("Reset Password From SOECE", "Your previous username is {} and otp is {}".format(context["username"], otp), [email, ])
     return render(request, "accounts/resetAccount.html", context)
 
 
