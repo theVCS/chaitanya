@@ -7,13 +7,19 @@
   body {
     font-family: Arial;
     padding: 10px;
-    background: #f1f1f1;
+    /* background: #f1f1f1; */
     
   }
   
   /* Header/Blog Title */
   
-  
+  /* navbor image */
+  .logo-header img {
+    height: auto;
+    width: 100%;
+    max-width: 133px;
+    max-height: 68px;
+}
   .header h1 {
     font-size: 50px;
   }
@@ -37,26 +43,33 @@
   /* Fake image */
     
     .fakeimg {
-			background-color: #aaa;
 			width: 100%;
 			padding: 20px;
 		}
   .logoimg
   {
     background-image: url("../images/home/logo_back.jpg");
+    border-radius: 11px;
+    box-shadow: 5px 5px 13px 4px rgb(203 194 194);
   }
   .welcome-text {
     font-size: 12px;
     font-weight: 600;
     margin: 10px 0 20px 0;
+    padding-left: 14px;
     font-family: Verdana, sans-serif;
     color: #49274A;
+    border: 3px solid #d3a7a7;
+    border-radius: 14px;
+    background: rgb(253 255 240);
+    box-shadow: 5px 5px 13px 4px rgb(203 194 194);
 }
   /* Add a card effect for articles */
   .card {
-    background-color: white;
+    background-color: rgb(238 248 252);
     padding: 20px;
     margin-top: 20px;
+    border-radius: 8px;
   }
   
   /* Clear floats after the columns */
@@ -88,3 +101,71 @@
   
   /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
   
+  /* carousel */
+  .gal-image img {
+    height: 250px;
+  }
+  .carousel-container{
+    height: auto;
+    padding:0px
+  }
+  .content-inner-carousel
+  {
+    padding :10px;
+  }
+  .section-full:last-child {
+    margin-bottom: 0px;
+}
+
+  /* notificatoin bar */
+  .notification-container{
+      /* display: block; */
+      background: rgb(253 255 240);
+      border-radius: 3px;
+      border: 2px solid rgb(201 190 190);
+      width:100%;
+      height: auto;
+      max-height: 735px;
+      /* border: 1px dotted black; */
+      
+      overflow-x: hidden;
+      overflow-y: scroll;
+  }
+  .notification-card {
+    list-style-type: none;
+    /* margin: 2px; */
+  }
+  .notification-card a{
+    display: block;
+    padding-left: 13px;
+    text-align: center;
+  }
+  .notification-card a{
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  .notification-container::-webkit-scrollbar {
+    display: none;
+}
+  /* unvisited link */
+ a:link {
+  color: #1b1a1a;
+}
+
+/* visited link */
+a:visited {
+  color: #121312;
+}
+
+/* mouse over link */
+a:hover {
+  color: #f81111;
+}
+
+/* selected link */
+a:active {
+  color: #0000FF;
+}    
