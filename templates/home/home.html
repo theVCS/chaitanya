@@ -3,9 +3,16 @@
 {% block title %}{{title}}{% endblock %}
 
 
-{% block css %}{%endblock%}
+{% block css %}
+<style>
+	.list-star::-webkit-scrollbar {
+		width: 0 !important
+	}
+</style>
+{%endblock%}
 
 {%block header%}
+
 <header class="site-header mo-left header">
 	<div class="sticky-header main-bar-wraper header-curve navbar-expand-lg">
 		<div class="main-bar clearfix bg-primary">
@@ -15,7 +22,9 @@
 					<a href="index.html"><img src="{%static 'images/logo.png'%}" alt=""></a>
 				</div>
 				<!-- nav toggle button -->
-				<button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler collapsed navicon justify-content-end" type="button"
+					data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+					aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
 					<span></span>
@@ -23,52 +32,53 @@
 				<!-- extra nav -->
 				<div class="extra-nav">
 					<div class="extra-cell">
-						<button id="quik-search-btn" type="button" class="site-button-link"><i class="la la-search"></i></button>
+						<button id="quik-search-btn" type="button" class="site-button-link"><i
+								class="la la-search"></i></button>
 						<div class="shop-cart navbar-right">
 							<button type="button" class="site-button-link cart-btn">
 								<i class="la la-cart-plus"></i><span class="badge bg-primary">3</span>
 							</button>
 							<ul class="dropdown-menu cart-list">
 								<li class="cart-item">
-									<div class="media"> 
-										<div class="media-left"> 
-											<a href="javascript:void(0);"> 
-												<img alt="" class="media-object" src="images/product/thumb3.jpg"> 
-											</a> 
-										</div> 
-										<div class="media-body"> 
+									<div class="media">
+										<div class="media-left">
+											<a href="javascript:void(0);">
+												<img alt="" class="media-object" src="images/product/thumb3.jpg">
+											</a>
+										</div>
+										<div class="media-body">
 											<h6><a href="" class="media-heading">Tshirt Dress</a></h6>
 											<span>$19.99</span>
 											<span class="item-close">X</span>
-										</div> 
+										</div>
 									</div>
 								</li>
 								<li class="cart-item">
-									<div class="media"> 
-										<div class="media-left"> 
-											<a href="javascript:void(0);"> 
-												<img alt="" class="media-object" src="images/product/thumb2.jpg"> 
-											</a> 
-										</div> 
-										<div class="media-body"> 
+									<div class="media">
+										<div class="media-left">
+											<a href="javascript:void(0);">
+												<img alt="" class="media-object" src="images/product/thumb2.jpg">
+											</a>
+										</div>
+										<div class="media-body">
 											<h6><a href="" class="media-heading">Tshirt Dress</a></h6>
 											<span>$19.99</span>
 											<span class="item-close">X</span>
-										</div> 
+										</div>
 									</div>
 								</li>
 								<li class="cart-item">
-									<div class="media"> 
-										<div class="media-left"> 
-											<a href="javascript:void(0);"> 
-												<img alt="" class="media-object" src="images/product/thumb1.jpg"> 
-											</a> 
-										</div> 
-										<div class="media-body"> 
+									<div class="media">
+										<div class="media-left">
+											<a href="javascript:void(0);">
+												<img alt="" class="media-object" src="images/product/thumb1.jpg">
+											</a>
+										</div>
+										<div class="media-body">
 											<h6><a href="" class="media-heading">Tshirt Dress</a></h6>
 											<span>$19.99</span>
 											<span class="item-close">X</span>
-										</div> 
+										</div>
 									</div>
 								</li>
 								<li class="cart-item text-center">
@@ -94,7 +104,7 @@
 					<div class="logo-header d-md-block d-lg-none">
 						<a href="index.html"><img src="images/logo.png" alt=""></a>
 					</div>
-					<ul class="nav navbar-nav">	
+					<ul class="nav navbar-nav">
 						<li class="active"> <a href="javascript:;">Home<i class="fa fa-chevron-down"></i></a>
 							<ul class="sub-menu">
 								<li><a href="index.html">Home - Default</a> </li>
@@ -115,10 +125,10 @@
 										<li><a href="header-style-4.html">Header 4</a></li>
 										<li><a href="header-style-5.html">Header 5</a></li>
 									</ul>
-								</li>	
-								<li> 
+								</li>
+								<li>
 									<a href="javascript:;">Header Dark <i class="fa fa-angle-right"></i></a>
-									<ul class="sub-menu">		
+									<ul class="sub-menu">
 										<li><a href="header-style-dark-1.html">Header 1</a></li>
 										<li><a href="header-style-dark-2.html">Header 2</a></li>
 										<li><a href="header-style-dark-3.html">Header 3</a></li>
@@ -126,7 +136,7 @@
 										<li><a href="header-style-dark-5.html">Header 5</a></li>
 									</ul>
 								</li>
-								<li> 
+								<li>
 									<a href="javascript:;">Footer <i class="fa fa-angle-right"></i></a>
 									<ul class="sub-menu">
 										<li><a href="footer-1.html">Footer 1 </a></li>
@@ -147,7 +157,7 @@
 						</li>
 						<li class="has-mega-menu"> <a href="javascript:;">Pages<i class="fa fa-chevron-down"></i></a>
 							<ul class="mega-menu">
-								<li> 
+								<li>
 									<a href="javascript:;">Pages</a>
 									<ul>
 										<li><a href="about-1.html">About us 1</a></li>
@@ -157,7 +167,7 @@
 										<li><a href="services-details.html">Services Details</a></li>
 									</ul>
 								</li>
-								<li> 
+								<li>
 									<a href="javascript:;">Pages</a>
 									<ul>
 										<li><a href="team-1.html">Team 1</a></li>
@@ -167,7 +177,7 @@
 										<li><a href="portfolio-grid-2.html">portfolio Grid 2</a></li>
 									</ul>
 								</li>
-								<li> 
+								<li>
 									<a href="javascript:;">Pages</a>
 									<ul>
 										<li><a href="portfolio-grid-3.html">Portfolio Grid 3</a></li>
@@ -177,7 +187,7 @@
 										<li><a href="error-404.html">Error 404</a></li>
 									</ul>
 								</li>
-								<li> 
+								<li>
 									<a href="javascript:;">Pages</a>
 									<ul>
 										<li><a href="error-405.html">Error 405</a></li>
@@ -243,41 +253,62 @@
 								<li><a href="javascript:;">Element</a>
 									<ul>
 										<li><a href="shortcode-buttons.html"><i class="ti-mouse"></i> Buttons</a></li>
-										<li><a href="shortcode-icon-box-styles.html"><i class="ti-layout-grid2"></i> Icon box styles</a></li>
-										<li><a href="shortcode-pricing-table.html"><i class="ti-layout-grid2-thumb"></i> Pricing table</a></li>
-										<li><a href="shortcode-toggles.html"><i class="ti-layout-accordion-separated"></i> Toggles</a></li>
+										<li><a href="shortcode-icon-box-styles.html"><i class="ti-layout-grid2"></i>
+												Icon box styles</a></li>
+										<li><a href="shortcode-pricing-table.html"><i class="ti-layout-grid2-thumb"></i>
+												Pricing table</a></li>
+										<li><a href="shortcode-toggles.html"><i
+													class="ti-layout-accordion-separated"></i> Toggles</a></li>
 										<li><a href="shortcode-team.html"><i class="ti-user"></i> Team</a></li>
-										<li><a href="shortcode-animation-effects.html"><i class="ti-layers-alt"></i> Animation Effects</a></li>
+										<li><a href="shortcode-animation-effects.html"><i class="ti-layers-alt"></i>
+												Animation Effects</a></li>
 									</ul>
 								</li>
 								<li> <a href="javascript:;">Element</a>
 									<ul>
-										<li><a href="shortcode-carousel-sliders.html"><i class="ti-layout-slider"></i> Carousel sliders</a></li>
-										<li><a href="shortcode-image-box-content.html"><i class="ti-image"></i> Image box content</a></li>
-										<li><a href="shortcode-tabs.html"><i class="ti-layout-tab-window"></i> Tabs</a></li>
+										<li><a href="shortcode-carousel-sliders.html"><i class="ti-layout-slider"></i>
+												Carousel sliders</a></li>
+										<li><a href="shortcode-image-box-content.html"><i class="ti-image"></i> Image
+												box content</a></li>
+										<li><a href="shortcode-tabs.html"><i class="ti-layout-tab-window"></i> Tabs</a>
+										</li>
 										<li><a href="shortcode-counters.html"><i class="ti-timer"></i> Counters</a></li>
-										<li><a href="shortcode-shop-widgets.html"><i class="ti-shopping-cart"></i> Shop Widgets</a></li>
-										<li><a href="shortcode-filters.html"><i class="ti-check-box"></i> Gallery Filters</a></li>
+										<li><a href="shortcode-shop-widgets.html"><i class="ti-shopping-cart"></i> Shop
+												Widgets</a></li>
+										<li><a href="shortcode-filters.html"><i class="ti-check-box"></i> Gallery
+												Filters</a></li>
 									</ul>
 								</li>
 								<li> <a href="javascript:;">Element</a>
 									<ul>
-										<li><a href="shortcode-accordians.html"><i class="ti-layout-accordion-list"></i> Accordians</a></li>
-										<li><a href="shortcode-dividers.html"><i class="ti-layout-list-post"></i> Dividers</a></li>
-										<li><a href="shortcode-images-effects.html"><i class="ti-layout-media-overlay"></i> Images effects</a></li>
-										<li><a href="shortcode-testimonials.html"><i class="ti-comments"></i> Testimonials</a></li>
-										<li><a href="shortcode-pagination.html"><i class="ti-more"></i> Pagination</a></li>
-										<li><a href="shortcode-alert-box.html"><i class="ti-alert"></i> Alert box</a></li>
+										<li><a href="shortcode-accordians.html"><i class="ti-layout-accordion-list"></i>
+												Accordians</a></li>
+										<li><a href="shortcode-dividers.html"><i class="ti-layout-list-post"></i>
+												Dividers</a></li>
+										<li><a href="shortcode-images-effects.html"><i
+													class="ti-layout-media-overlay"></i> Images effects</a></li>
+										<li><a href="shortcode-testimonials.html"><i class="ti-comments"></i>
+												Testimonials</a></li>
+										<li><a href="shortcode-pagination.html"><i class="ti-more"></i> Pagination</a>
+										</li>
+										<li><a href="shortcode-alert-box.html"><i class="ti-alert"></i> Alert box</a>
+										</li>
 									</ul>
 								</li>
 								<li> <a href="javascript:;">Element</a>
 									<ul>
-										<li><a href="shortcode-icon-box.html"><i class="ti-layout-media-left-alt"></i> Icon Box</a></li>
-										<li><a href="shortcode-list-group.html"><i class="ti-list"></i> List group</a></li>
-										<li><a href="shortcode-title-separators.html"><i class="ti-layout-line-solid"></i> Title Separators</a></li>
-										<li><a href="shortcode-all-widgets.html"><i class="ti-widgetized"></i> Widgets</a></li>
-										<li><a href="shortcode-carousel-sliders.html"><i class="ti-layout-slider"></i> Carousel sliders</a></li>
-										<li><a href="shortcode-image-box-content.html"><i class="ti-image"></i> Image box content</a></li>
+										<li><a href="shortcode-icon-box.html"><i class="ti-layout-media-left-alt"></i>
+												Icon Box</a></li>
+										<li><a href="shortcode-list-group.html"><i class="ti-list"></i> List group</a>
+										</li>
+										<li><a href="shortcode-title-separators.html"><i
+													class="ti-layout-line-solid"></i> Title Separators</a></li>
+										<li><a href="shortcode-all-widgets.html"><i class="ti-widgetized"></i>
+												Widgets</a></li>
+										<li><a href="shortcode-carousel-sliders.html"><i class="ti-layout-slider"></i>
+												Carousel sliders</a></li>
+										<li><a href="shortcode-image-box-content.html"><i class="ti-image"></i> Image
+												box content</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -291,253 +322,508 @@
 								<li><a href="contact-4.html">Contact us 4</a></li>
 							</ul>
 						</li>
-					</ul>		
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 </header>
-
 {%endblock%}
-
 
 {% block body%}
-<div class="section-full content-inner contact-page-8 bg-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-12">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 m-b30">
-                        <div class="icon-bx-wraper expertise bx-style-1 p-a20 radius-sm">
-                            <div class="icon-content">
-                                <h5 class="dlab-tilte">
-                                    <span class="icon-sm text-primary"><i class="ti-location-pin"></i></span> 
-                                    Company Address
-                                </h5>
-                                <p>007 Dummy Ashoka Apartment, Gautam Marg, Rani Sati Nagar,Jaipur / India </p>
-                                <h6 class="m-b15 text-black font-weight-400"><i class="ti-alarm-clock"></i> Office Hours</h6>
-                                <p class="m-b0">Mon To Sat - 10.00 - 07.00</p>
-                                <p>Sunday - Close</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-6 m-b30">
-                        <div class="icon-bx-wraper expertise bx-style-1 p-a20 radius-sm">
-                            <div class="icon-content">
-                                <h5 class="dlab-tilte">
-                                    <span class="icon-sm text-primary"><i class="ti-email"></i></span> 
-                                    E-mail
-                                </h5>
-                                <p class="m-b0">info@example.com</p>
-                                <p class="m-b0">hr@example.com</p>
-                                <p class="m-b0">support@example.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-6 m-b30">
-                        <div class="icon-bx-wraper expertise bx-style-1 p-a20 radius-sm">
-                            <div class="icon-content">
-                                <h5 class="dlab-tilte">
-                                    <span class="icon-sm text-primary"><i class="ti-mobile"></i></span> 
-                                    Phone Numbers
-                                </h5>
-                                <p class="m-b0">+91-80033-93704</p>
-                                <p class="m-b0">+91-80033-96875</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-12 m-b30">
-                <form class="inquiry-form wow fadeInUp" data-wow-delay="0.2s">
-                    <h3 class="title-box font-weight-300 m-t0 m-b10">Let's Convert Your Idea into Reality <span class="bg-primary"></span></h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="ti-user text-primary"></i></span>
-                                    <input name="dzName" type="text" required class="form-control" placeholder="First Name">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="ti-mobile text-primary"></i></span>
-                                    <input name="dzOther[Phone]" type="text" required class="form-control" placeholder="Phone">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <div class="input-group"> 
-                                    <span class="input-group-addon"><i class="ti-email text-primary"></i></span>
-                                    <input name="dzEmail" type="email" class="form-control" required  placeholder="Your Email Id" >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="ti-check-box text-primary"></i></span>
-                                    <input name="dzOther[Subject]" type="text" required class="form-control" placeholder="Upload File">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="ti-file text-primary"></i></span>
-                                    <input name="dzOther[Subject]" type="text" required class="form-control" placeholder="Upload File">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="ti-agenda text-primary"></i></span>
-                                    <textarea name="dzMessage" rows="4" class="form-control" required placeholder="Tell us about your project or idea"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <button name="submit" type="submit" value="Submit" class="site-button button-md"> <span>Get A Free Quote!</span> </button>
-                        </div>
-                    </div>
-                </form>	
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Contact Form END -->
-</div>
-{%endblock%}
+<!-- Slider -->
+<div class="main-slider style-two default-banner" id="home">
+	<div class="tp-banner-container">
+		<div class="tp-banner">
+			<div id="welcome_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="reveal-add-on36"
+				data-source="gallery" style="background:#ffffff;padding:0px;">
+				<!-- START REVOLUTION SLIDER 5.4.7.2 fullscreen mode -->
+				<div id="welcome" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.7.2">
+					<ul>
+						<!-- SLIDE  -->
+						<li data-index="rs-100" data-transition="slideoververtical" data-slotamount="default"
+							data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default"
+							data-easeout="default" data-masterspeed="default" data-thumb="" data-rotate="0"
+							data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3=""
+							data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+							data-param10="" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src="{%static 'images/home/slider1.jpg'%}" alt=""
+								data-lazyload="{%static 'images/home/slider1.jpg'%}" data-bgposition="center center"
+								data-kenburns="on" data-duration="4000" data-ease="Power3.easeInOut"
+								data-scalestart="150" data-scaleend="100" data-rotatestart="0" data-rotateend="0"
+								data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0"
+								data-bgparallax="4" class="rev-slidebg" data-no-retina>
+							<!-- LAYER NR. 1 -->
+							<!-- LAYERS -->
+							<div class="tp-caption tp-shape tp-shapewrapper " id="slide-100-layer"
+								data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+								data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape"
+								data-basealign="slide" data-responsive_offset="off" data-responsive="off"
+								data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}]'
+								data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								style="z-index: 2;background-color:rgba(0, 0, 0, 0.1);border-color:rgba(0, 0, 0, 0);border-width:0px; background-image:url(images/overlay/rrdiagonal-line.png)">
+							</div>
+							<!-- LAYER NR. 1 -->
 
+							<div class="tp-caption tp-shape tp-shapewrapper ov-tp " id="slide-100-layer-1"
+								data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+								data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape"
+								data-basealign="slide" data-responsive_offset="off" data-responsive="off"
+								data-frames='[{"delay":10,"speed":1000,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1500,"frame":"999","to":"opacity:0;","ease":"Power4.easeIn"}]'
+								data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]" style="z-index: 5;">
+							</div>
+							<div class="tp-caption " id="slide-100-layer-3"
+								data-x="['center','center','center','center']" data-hoffset="['-90','-200','0','0']"
+								data-y="['middle','middle','middle','middle']"
+								data-voffset="['-100','-100','-100','-90']" data-fontsize="['65','40','40','30']"
+								data-lineheight="['80','40','40','30']" data-letterspacing="['2','2','2','2']"
+								data-width="['1000','none','768','360']" data-height="none"
+								data-whitespace="['normal','nowrap','normal','normal']" data-type="text"
+								data-responsive_offset="off" data-responsive="off"
+								data-frames='[{"delay":900,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:1.1;sY:1.1;skX:0;skY:0;opacity:0;","color":"#000000","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","color":"#000000","to":"opacity:0;","ease":"nothing"}]'
+								data-textAlign="['left','left','center','center']" data-paddingtop="[0,0,0,0]"
+								data-paddingright="[10,10,0,0]" data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								style="z-index: 6; min-width: 800px; max-width: 800px; font-weight: 600; white-space: normal; color: #fff; font-family: 'Poppins',sans-serif;">
+								SOCIETY OF <br />ELECTRONICS AND <br /> COMMUNICATIONS
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption" id="slide-100-layer-4"
+								data-x="['center','center','center','center']" data-hoffset="['-265','-165','0','0']"
+								data-y="['middle','middle','middle','middle']" data-voffset="['50','0','-5','00']"
+								data-fontsize="['18','16','14','14']" data-lineheight="['30','30','26','26']"
+								data-width="['640','481','500','300']" data-height="none" data-whitespace="normal"
+								data-type="text" data-responsive_offset="off" data-responsive="off"
+								data-frames='[{"delay":900,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:1.1;sY:1.1;skX:0;skY:0;opacity:0;","color":"#000000","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","color":"#000000","to":"opacity:0;","ease":"nothing"}]'
+								data-textAlign="['left','left','center','center']" data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								style="z-index: 7; min-width: 640px; max-width: 640px; font-weight: 700; font-size: 18px; line-height: 30px; font-weight: 400; color: #fff; font-family: 'Poppins',sans-serif;">
+							</div>
+						</li>
+						<li data-index="rs-200" data-transition="fadethroughdark" data-slotamount="default"
+							data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default"
+							data-easeout="default" data-masterspeed="default" data-thumb="" data-rotate="0"
+							data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3=""
+							data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+							data-param10="" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src="{%static 'images/home/slider2.jpg'%}" alt=""
+								data-lazyload="{%static 'images/home/slider2.jpg'%}" data-bgposition="center center"
+								data-kenburns="on" data-duration="4000" data-ease="Power3.easeInOut"
+								data-scalestart="150" data-scaleend="100" data-rotatestart="0" data-rotateend="0"
+								data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0"
+								data-bgparallax="4" class="rev-slidebg" data-no-retina>
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper " id="slide-200-layer"
+								data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+								data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape"
+								data-basealign="slide" data-responsive_offset="off" data-responsive="off"
+								data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}]'
+								data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								style="z-index: 2;background-color:rgba(0, 0, 0, 0.1);border-color:rgba(0, 0, 0, 0);border-width:0px; background-image:url(images/overlay/rrdiagonal-line.png)">
+							</div>
+							<div class="tp-caption tp-shape tp-shapewrapper ov-tp " id="slide-200-layer-1"
+								data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+								data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape"
+								data-basealign="slide" data-responsive_offset="off" data-responsive="off"
+								data-frames='[{"delay":10,"speed":1000,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1500,"frame":"999","to":"opacity:0;","ease":"Power4.easeIn"}]'
+								data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]" style="z-index: 5;">
+							</div>
+							<div class="tp-caption " id="slide-200-layer-3"
+								data-x="['center','center','center','center']" data-hoffset="['-90','-200','0','0']"
+								data-y="['middle','middle','middle','middle']"
+								data-voffset="['-100','-100','-100','-90']" data-fontsize="['65','40','40','30']"
+								data-lineheight="['80','40','40','30']" data-letterspacing="['2','2','2','2']"
+								data-width="['1000','none','768','360']" data-height="none"
+								data-whitespace="['normal','nowrap','normal','normal']" data-type="text"
+								data-responsive_offset="off" data-responsive="off"
+								data-frames='[{"delay":900,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:1.1;sY:1.1;skX:0;skY:0;opacity:0;","color":"#000000","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","color":"#000000","to":"opacity:0;","ease":"nothing"}]'
+								data-textAlign="['left','left','center','center']" data-paddingtop="[0,0,0,0]"
+								data-paddingright="[10,10,0,0]" data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								style="z-index: 6; min-width: 800px; max-width: 800px; font-weight: 600; white-space: normal; color: #fff; font-family: 'Poppins',sans-serif;">
+								SOCIETY OF <br />ELECTRONICS AND <br /> COMMUNICATIONS
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption" id="slide-200-layer-4"
+								data-x="['center','center','center','center']" data-hoffset="['-265','-165','0','0']"
+								data-y="['middle','middle','middle','middle']" data-voffset="['50','0','-5','00']"
+								data-fontsize="['18','16','18','14']" data-lineheight="['30','30','25','22']"
+								data-width="['640','481','500','300']" data-height="none" data-whitespace="normal"
+								data-type="text" data-responsive_offset="off" data-responsive="off"
+								data-frames='[{"delay":900,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:1.1;sY:1.1;skX:0;skY:0;opacity:0;","color":"#000000","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","color":"#000000","to":"opacity:0;","ease":"nothing"}]'
+								data-textAlign="['left','left','center','center']" data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								style="z-index: 7; min-width: 640px; max-width: 640px; font-weight: 700; font-size: 18px; line-height: 30px; font-weight: 400; color: #fff; font-family: 'Poppins',sans-serif;">
+							</div>
+						</li>
+					</ul>
+					<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+				</div>
+			</div>
+			<!-- END REVOLUTION SLIDER -->
+		</div>
+	</div>
+</div>
+<!-- Slider END -->
+
+<!-- about section -->
+<div class="section-full bg-white content-inner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- tabs defult -->
+				<div class="section-content box-sort-in button-example p-t10 p-b30 tabs-site-button">
+					<div class="dlab-tabs">
+						<ul class="nav nav-tabs">
+							<li><a data-toggle="tab" href="#web-design-1" class="active"><i class="ti-world"></i><span
+										class="title-head">About</span></a></li>
+							<li><a data-toggle="tab" href="#graphic-design-1"><i class="ti-image"></i>
+									<span class="title-head">Vision</span></a></li>
+							<li><a data-toggle="tab" href="#developement-1"><i class="fa fa-cog"></i><span
+										class="title-head">Mission</span></a></li>
+						</ul>
+						<div class="tab-content">
+							<div id="web-design-1" class="tab-pane active">
+								<p class="m-b0">The Society of Electronics and Communication Engineers (SOECE) is the
+									professional society of Electronics and Communication Department.The Society came
+									into being ever since the inception of ECE Department in the Institute. SOECE aims
+									at nurturing technical, cultural and managerial skills among the students by
+									providing ample opportunities to bring their potential at surface.
+								</p>
+							</div>
+							<div id="graphic-design-1" class="tab-pane">
+								<p class="m-b0">To become a globally recognised department of higher learning that will
+									provide inter-disciplinary knowledge,human values and professional ethics among the
+									youth, so as to serve as a valuable resource for the industry and society.
+								</p>
+							</div>
+							<div id="developement-1" class="tab-pane">
+								<p class="m-b0">To serve the nation and the world by graduating proficient,
+									knowledgeable engineers in the field of Electronics, Communication and related areas
+									through constsnt interaction with research organisations and industries.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- about section -->
+
+
+<!-- gallery -->
+<div class="section-full bg-white content-inner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="sort-title clearfix text-center">
+					<h4>Gallery</h4>
+				</div>
+				<!-- Portfolio Carousel with team member -->
+				<div class="section-content box-sort-in m-b30 button-example">
+					<div class="img-carousel owl-loaded owl-theme owl-carousel mfp-gallery gallery owl-btn-center-lr owl-btn-4 owl-dots-none"
+						id="gallery">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- gallery -->
+
+<div class="section-full bg-white content-inner bg-img-fix">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="sort-title clearfix text-center">
+					<h4>Events by SOECE</h4>
+				</div>
+				<!-- Listing With Numbering & Alfha -->
+				<div class="section-content box-sort-in m-b10 p-b0 button-example m-b30">
+					<div class="row">
+						<div class="col-md-4 col-lg-4">
+							<ul class="list-star red list-box">
+								<li>A two days Workshop on MATLAB was conducted for the students of 1st year during
+									24-25 Jan, 2013.
+								</li>
+								<li>Celebration of farewell function for passing out students 13 May 2014.
+								</li>
+								<li>Organized work workshop on “Multisim” for B.Tech students of ECE department, held on
+									Nov., 2014.
+								</li>
+								<li>AN EVENT “ ELECTRONICS PREMIER LEAGUE “DATE: 7TH AND 8TH FEBRUARY 2015.
+								</li>
+								<li>B.Tech ECE 3rd Year organized Industrial Tour to TBR Laboratory, DRDO Ramgarh Test
+									Range, Panchkula Haryana, near Chandigarh scheduled on 16th March, 2015.
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-4 col-lg-4 ">
+							<ul class="list-cup primary list-box style1">
+								<li>Electrical Circuits Simulation Workshop was conducted on 5 Oct, 2012.
+								</li>
+								<li>Organized work workshop on “Introduction to Matlab” for UG and PG students of
+									various departments, held on 23-24 Aug., 2014.
+								</li>
+								<li>The farewell for ECE 4th year is held on 1st May, 2015.
+								</li>
+								<li>Celebration of farewell function for passing out students 13 May 2014.
+								</li>
+								<li>Organized work workshop on “Introduction to Matlab” for UG and PG students of
+									various departments, held on 23-24 Aug., 2014.
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-4 col-lg-4">
+							<ul class="list-heart primary list-box style2">
+								<li>PCB Design Workshop was conducted on 15-16 Sep, 2012
+								</li>
+								<li>Engineer's Day Celebration in Dept. of ECE on 15th Sep., 2014.
+								</li>
+								<li>Organized work workshop on “Multisim” for B.Tech students of ECE department, held on
+									Nov., 2014
+								</li>
+								<li>Under IEEE, NITJ Students chapter, a two days Workshop on Multisim was conducted for
+									the students of 1st year during 3-4 Aug, 2013.</li>
+								<li>A Seminar regarding IEEE Student Chapter was held on 14 Jan, 2013 by speaker Mr.
+									Tushar Sharma, Gold member, IEEE Delhi Section
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Listing With Numbering & Alfha END -->
+</div>
+
+
+
+<!-- notification bar -->
+<div class="section-full bg-white content-inner bg-img-fix">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="sort-title clearfix text-center">
+					<h4>Notifications </h4>
+				</div>
+				<!-- Listing With Numbering & Alfha -->
+
+				<div class="section-content box-sort-in m-b10 p-b0 button-example">
+					<div class="max-w1200 m-auto">
+						<ul class="list-star reverse list-box "
+							style="height: 400px; overflow-y: scroll; overflow-x: hidden;">
+							<li>Create just what you need for your Perfect Website. <i><img
+										src="{%static 'images/home/new.png'%}" style="height: 25px; width: 25px;"
+										alt=""></i></li>
+							<li>Create just what you need for your Perfect Website. </li>
+							<li>Create just what you need for your Perfect Website. </li>
+							<li>Create just what you need for your Perfect Website. </li>
+							<li>Create just what you need for your Perfect Website. </li>
+							<li>Create just what you need for your Perfect Website. </li>
+							<li>Create just what you need for your Perfect Website. </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- notification bar -->
+
+{%endblock%}
 
 {% block footer%}
 <footer class="site-footer style1">
-    <!-- Footer Info -->
-    <div class="section-full p-t50 p-b20 bg-primary text-white overlay-primary-dark footer-info-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                    <div class="icon-bx-wraper bx-style-1 p-a20 radius-sm br-col-w1">
-                        <div class="icon-content">
-                            <h5 class="dlab-tilte">
-                                <span class="icon-sm"><i class="ti-location-pin"></i></span> 
-                                Company Address
-                            </h5>
-                            <p class="op7">Demo address #8901 Marmora Road Chi Minh City, Vietnam</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                    <div class="icon-bx-wraper bx-style-1 p-a20 radius-sm br-col-w1">
-                        <div class="icon-content">
-                            <h5 class="dlab-tilte">
-                                <span class="icon-sm"><i class="ti-email"></i></span> 
-                                E-mail
-                            </h5>
-                            <p class="m-b0 op7">info@example.com</p>
-                            <p class="op7">company@example.com</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                    <div class="icon-bx-wraper bx-style-1 p-a20 radius-sm br-col-w1">
-                        <div class="icon-content">
-                            <h5 class="dlab-tilte">
-                                <span class="icon-sm"><i class="ti-mobile"></i></span> 
-                                Phone Numbers
-                            </h5>
-                            <p class="m-b0 op7">Mobile : +00 234 678 9012</p>
-                            <p class="op7">Phone : +0 1234 5678 90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                    <div class="icon-bx-wraper bx-style-1 p-a20 radius-sm br-col-w1">
-                        <div class="icon-content">
-                            <h5 class="dlab-tilte">
-                                <span class="icon-sm"><i class="ti-alarm-clock"></i></span> 
-                                Office Hours
-                            </h5>
-                            <p class="m-b0 op7">Mon To Sat - 08.00-18.00</p>
-                            <p class="op7">Sunday - Close</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer Info End -->
-    <!-- Footer Top -->
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="widget widget_about">
-                        <h4 class="footer-title">About Industry</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
-                        <a href="about-2.html" class="readmore">Read More</a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="widget">
-                        <h4 class="footer-title">Usefull Link</h4>
-                        <ul class="list-2">
-                            <li><a href="about-1.html">About Us</a></li>
-                            <li><a href="blog-grid-2.html">Blog</a></li>
-                            <li><a href="services-1.html">Services</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="portfolio-grid-2.html">Projects </a></li>
-                            <li><a href="help-desk.html">Help Desk </a></li>
-                            <li><a href="shop.html">Shop</a></li>
-                            <li><a href="contact-1.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="widget widget_subscribe">
-                        <h4 class="footer-title">Usefull Link</h4>
-                        <p>If you have any questions. Subscribe to our newsletter to get our latest products.</p>
-                        <form class="dzSubscribe" action="script/mailchamp.php" method="post">
-                            <div class="dzSubscribeMsg"></div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input name="dzEmail" required="required" type="email" class="form-control" placeholder="Your Email Address">
-                                    <div class="input-group-addon">
-                                        <button name="submit" value="Submit" type="submit" class="site-button fa fa-paper-plane-o"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer Top End -->
-    <!-- Footer Bottom -->
-    <div class="footer-bottom footer-line">
-        <div class="container">
-            <div class="footer-bottom-in">
-                <div class="footer-bottom-logo"><a href="index.html"><img src="images/logo-light.png" alt=""/></a></div>
-                <div class="footer-bottom-social">
-                    <ul class="dlab-social-icon dez-border">
-                        <li><a class="fa fa-facebook" href="javascript:void(0);"></a></li>
-                        <li><a class="fa fa-twitter" href="javascript:void(0);"></a></li>
-                        <li><a class="fa fa-linkedin" href="javascript:void(0);"></a></li>
-                        <li><a class="fa fa-pinterest" href="javascript:void(0);"></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer Bottom End -->
+	<!-- Footer Info -->
+	<div class="section-full p-t50 p-b20 bg-primary text-white overlay-primary-dark footer-info-bar">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6 m-b30">
+					<div class="icon-bx-wraper bx-style-1 p-a20 radius-sm br-col-w1">
+						<div class="icon-content">
+							<h5 class="dlab-tilte">
+								<span class="icon-sm"><i class="ti-location-pin"></i></span>
+								Collage Address
+							</h5>
+							<p class="op7">
+								Grand Trunk Road, Barnala - Amritsar Bypass Rd, Jalandhar, Punjab 144011
+
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6 m-b30">
+					<div class="icon-bx-wraper bx-style-1 p-a20 radius-sm br-col-w1">
+						<div class="icon-content">
+							<h5 class="dlab-tilte">
+								<span class="icon-sm"><i class="ti-email"></i></span>
+								E-mail
+							</h5>
+							<p class="m-b0 op7">Email: <a href="http://www.gmail.com"
+									style="color:#f02808">hec@nitj.ac.in</a></p>
+							<p class="op7">Email: <a href="http://www.gmail.com" style="color:#f02808">
+									soece@nitj.ac.in</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6 m-b30">
+					<div class="icon-bx-wraper bx-style-1 p-a20 radius-sm br-col-w1">
+						<div class="icon-content">
+							<h5 class="dlab-tilte">
+								<span class="icon-sm"><i class="ti-mobile"></i></span>
+								Phone Numbers
+							</h5>
+							<p class="m-b0 op7">Telephone: 0181-2690301 Extn: 2602</p>
+							<br>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6 m-b30">
+					<div class="icon-bx-wraper bx-style-1 p-a20 radius-sm br-col-w1">
+						<div class="icon-content">
+							<h5 class="dlab-tilte">
+								<span class="icon-sm"><i class="ti-alarm-clock"></i></span>
+								Office Hours
+							</h5>
+							<p class="m-b0 op7">Mon To Sat - 08.00-18.00</p>
+							<p class="op7">Sunday - Close</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Info End -->
+	<!-- Footer Top -->
+	<div class="footer-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-6">
+					<div class="widget widget_about">
+						<h4 class="footer-title">About the Department</h4>
+						<p>Since its inception in 1989, the department of Electronics and Communication Engineering
+							has
+							grown tremendously.
+							The department offers a wide range of courses, which addresses all of the major subject
+							areas underpinning the new
+							communication era..</p>
+						<a href="about-2.html" class="readmore">Read More</a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="widget">
+						<h4 class="footer-title">Usefull Link</h4>
+						<ul class="list-2">
+							<li><a href="about-1.html">About Us</a></li>
+							<li><a href="blog-grid-2.html">Blog</a></li>
+							<li><a href="services-1.html">Services</a></li>
+							<li><a href="privacy-policy.html">Privacy Policy</a></li>
+							<li><a href="portfolio-grid-2.html">Projects </a></li>
+							<li><a href="help-desk.html">Help Desk </a></li>
+							<li><a href="shop.html">Shop</a></li>
+							<li><a href="contact-1.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<div class="widget widget_subscribe">
+						<h4 class="footer-title">Usefull Link</h4>
+						<p>If you have any questions. Subscribe to our newsletter to get our latest products.</p>
+						<form class="dzSubscribe" action="script/mailchamp.php" method="post">
+							<div class="dzSubscribeMsg"></div>
+							<div class="form-group">
+								<div class="input-group">
+									<input name="dzEmail" required="required" type="email" class="form-control"
+										placeholder="Your Email Address">
+									<div class="input-group-addon">
+										<button name="submit" value="Submit" type="submit"
+											class="site-button fa fa-paper-plane-o"></button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Footer Top End -->
+	<!-- Footer Bottom -->
+	<div class="footer-bottom footer-line">
+		<div class="container">
+			<div class="footer-bottom-in">
+				<div class="footer-bottom-logo"><a href="index.html"><img src="images/logo-light.png" alt="" /></a>
+				</div>
+				<div class="footer-bottom-social">
+					<ul class="dlab-social-icon dez-border">
+						<li><a class="fa fa-facebook" href="javascript:void(0);"></a></li>
+						<li><a class="fa fa-twitter" href="javascript:void(0);"></a></li>
+						<li><a class="fa fa-linkedin" href="javascript:void(0);"></a></li>
+						<li><a class="fa fa-pinterest" href="javascript:void(0);"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Bottom End -->
 </footer>
 {%endblock%}
 
+{% block script %}
+<script>
+	function getGallery() {
+		const url = "http://127.0.0.1:8000/home/gallery/";
+		const token = '{{csrf_token}}';
 
-{% block script %}{%endblock%}
+		return request = $.ajax({
+			headers: {
+				"X-CSRFToken": token
+			},
+			url: url,
+			type: "post",
+			data: {},
+			async: false,
+		}).responseText;
+	}
+
+	gallery = JSON.parse(getGallery())["img"]
+	const ele = $("#gallery")[0];
+	innerHTML = ""
+
+	for (let index = 0; index < gallery.length; index++) {
+		const loc = gallery[index];
+		innerHTML += `<div class="item">
+							<div class="ow-portfolio">
+								<div class="ow-portfolio-img dlab-img-overlay1 dlab-img-effect zoom-slow">
+									<img src="` + loc + `" alt="">
+								</div>
+							</div>
+						</div>`
+	}
+
+	ele.innerHTML = innerHTML
+</script>
+{% endblock %}
