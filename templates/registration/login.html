@@ -12,7 +12,7 @@
 			<div class="container clearfix">
 				<!-- website logo -->
 				<div class="logo-header mostion">
-					<a href="/"><img src="{%static 'images/logo.png'%}" alt=""></a>
+					<a href="/"><img src="{%static 'images/logo.png'%}" alt="" style="height: 72px; width: 72px;"></a>
 				</div>
 
 				<!-- main nav -->
@@ -69,7 +69,8 @@
 								method="POST">
 								{%csrf_token%}
 								<h4 class="font-weight-700">LOGIN</h4>
-								<p class="font-weight-600">If you have an account with us, please log in. Credentials are case sensitive.</p>
+								<p class="font-weight-600">If you have an account with us, please log in. Credentials
+									are case sensitive.</p>
 								<div class="form-group">
 									<label class="font-weight-700">USERNAME *</label>
 									<input name="username" required="" class="form-control" placeholder="Your Email Id"
@@ -86,13 +87,14 @@
 											class="fa fa-unlock-alt"></i> Forgot Password</a>
 								</div>
 							</form>
-							<form id="forgot-password" class="tab-pane fade  col-12 p-a0" method="POST" action="/accounts/resetAccount/">
+							<form id="forgot-password" class="tab-pane fade  col-12 p-a0" method="POST"
+								action="/accounts/resetAccount/">
 								{%csrf_token%}
 								{%if err%}
 								<div class="alert alert-danger" role="alert">
 									{{err}}
 								</div>
-								{%endif%}  
+								{%endif%}
 								<h4 class="font-weight-700">FORGET PASSWORD ?</h4>
 								<p class="font-weight-600">We will send you an email to reset your password. </p>
 								<div class="form-group">
@@ -105,8 +107,6 @@
 										href="#login">Back</a>
 									<button class="site-button pull-right button-lg radius-no">Submit</button>
 								</div>
-								
-	
 							</form>
 						</div>
 					</div>
@@ -132,13 +132,17 @@
 				</div>
 				<div class="col-md-6 text-md-right text-center">
 					<div class="widget-link ">
-						<ul>
-							<li><a href="javascript:void(0);">Home</a></li>
-							<li><a href="javascript:void(0);">About us</a></li>
-							<li><a href="javascript:void(0);">Help Desk</a></li>
-							<li><a href="javascript:void(0);">Privacy Policy</a></li>
-							<li><a href="javascript:void(0);">Contact Us</a></li>
-						</ul>
+						<p>
+							Developed By
+							<a target="_blank" href="https://www.linkedin.com/in/prince-mishra-7379101ab/">Prince
+								Mishra</a>, and
+							<a target="_blank" href="https://www.linkedin.com/in/nishant-6013b61a3/">Nishant</a>
+						</p>
+						<p>
+							Idea by
+							<a target="_blank" href="https://www.linkedin.com/in/sourav-goyal-61b469196/">Sourav
+								Goyal</a>
+						</p>
 					</div>
 				</div>
 			</div>

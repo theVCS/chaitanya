@@ -23,12 +23,13 @@ def random_with_N_digits(n):
 
 def resetAccount(request):
     context = {
-        "title": "Chaitanya - vision to impart knowledge"
+        "title": "SOECE: Society Of Electronics And Communications"
     }
 
     email = request.POST.get("email")
 
     cnt = 0
+
     if Profile.objects.filter(email=email).exists():
         cnt = 1
 
@@ -39,12 +40,18 @@ def resetAccount(request):
     otp = random_with_N_digits(6)
     context["otp"] = otp
     context["username"] = Profile.objects.filter(email=email)[0].user
-    send_mail("Reset Password From Chaitanya", "Your previous username is {} and otp is {}".format(
-        context["username"], otp), [email, ])
+    print(otp)
+    print(email)
+    print(context["username"])
+    send_mail("Reset Password From Chaitanya", "Your previous username is {} and otp is {}".format(context["username"], otp), [email, ])
     return render(request, "accounts/resetAccount.html", context)
 
 
 def resetPass(request):
+    context = {
+        "title": "SOECE: Society Of Electronics And Communications"
+    }
+
     username = request.POST.get("username")
     password = request.POST.get("password1")
     user = User.objects.get(username=username)
@@ -52,12 +59,12 @@ def resetPass(request):
     user.save()
     user = authenticate(username=username, password=password)
     login(request, user)
-    return render(request, "home/home.html")
+    return render(request, "home/home.html", context)
 
 
 def home(request):
     context = {
-        "title": "Chaitanya - vision to impart knowledge"
+        "title": "SOECE: Society Of Electronics And Communications"
     }
     return render(request, "accounts/home.html", context)
 
@@ -65,7 +72,7 @@ def home(request):
 def logout_view(request):
     logout(request)
     context = {
-        "title": "Chaitanya - vision to impart knowledge"
+        "title": "SOECE: Society Of Electronics And Communications"
     }
     return render(request, "registration/login.html", context)
 
@@ -109,9 +116,9 @@ def addUser(request):
         password = user_form.cleaned_data['password1']
         user = authenticate(username=username, password=password)
         login(request, user)
-        return render(request, 'home/home.html', {"title": "Chaitanya - vision to impart knowledge"})
+        return render(request, 'home/home.html', {"title": "SOECE: Society Of Electronics And Communications"})
     else:
-        return render(request, 'accounts/home.html', {"title": "Chaitanya - vision to impart knowledge"})
+        return render(request, 'accounts/home.html', {"title": "SOECE: Society Of Electronics And Communications"})
 
 
 def createAccount(request):
@@ -125,7 +132,7 @@ def createAccount(request):
         otp = random_with_N_digits(6)
         send_mail("Thanks for joining Chaintanya", otp, [email, ])
         context = {
-            "title": "Chaitanya - vision to impart knowledge",
+            "title": "SOECE: Society Of Electronics And Communications",
             "username": username,
             "password": password,
             "firstName": firstName,
@@ -136,11 +143,11 @@ def createAccount(request):
         }
         return render(request, 'accounts/otpConfirm.html', context)
     else:
-        return render(request, 'accounts/home.html', {"title": "Chaitanya - vision to impart knowledge"})
+        return render(request, 'accounts/home.html', {"title": "SOECE: Society Of Electronics And Communications"})
 
 
 def profile(request):
     context = {
-        "title": "Chaitanya - vision to impart knowledge"
+        "title": "SOECE: Society Of Electronics And Communications"
     }
     return render(request, "home/home.html", context)

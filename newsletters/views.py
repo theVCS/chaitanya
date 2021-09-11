@@ -5,9 +5,11 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def home(request):
-    newsletters = Newsletter.objects.all().reverse()
+    lmt = 15
+    newsletters = Newsletter.objects.order_by('-pk')
+    newsletters = newsletters[:lmt]
     context = {
-        "title": "Chaitanya: Vision to impart knowledge",
+        "title": "SOECE: Society Of Electronics And Communications",
         "newsletters": newsletters,
     }
     return render(request, "newsletters/home.html", context)
@@ -15,7 +17,7 @@ def home(request):
 def showDetails(request):
     id = request.GET.get("newsletter")
     context = {
-        "title": "Chaitanya: Vision to impart knowledge",
+        "title": "SOECE: Society Of Electronics And Communications",
         "newsletterId": id,
         "newsletter": Newsletter.objects.filter(id=id)[0],
         "comments": Comment.objects.filter(newsletterId=id),
@@ -35,7 +37,7 @@ def addComment(request):
     comment.save()
 
     context = {
-        "title": "Chaitanya: Vision to impart knowledge",
+        "title": "SOECE: Society Of Electronics And Communications",
         "newsletterId": id,
         "newsletter": Newsletter.objects.filter(id=id)[0],
         "comments": Comment.objects.filter(newsletterId=id),
@@ -54,7 +56,7 @@ def deleteComment(request):
     newsletter.save()
 
     context = {
-        "title": "Chaitanya: Vision to impart knowledge",
+        "title": "SOECE: Society Of Electronics And Communications",
         "newsletterId": id,
         "newsletter": Newsletter.objects.filter(id=id)[0],
         "comments": Comment.objects.filter(newsletterId=id),

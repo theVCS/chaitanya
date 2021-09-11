@@ -6,10 +6,13 @@ from django.contrib.auth.models import User
 
 
 def home(request):
-    blog = Blog.objects.all().reverse()
+    lmt = 15
+    blog = Blog.objects.order_by('-pk')
+    lmt = min(lmt,blog.count())
+    blog = blog[:lmt]
 
     context = {
-        "title": "Chaitanya: Vision to impart knowledge",
+        "title": "SOECE: Society Of Electronics And Communications",
         "blogs": blog,
     }
     return render(request, "blog/home.html", context)
@@ -18,7 +21,7 @@ def home(request):
 def blogDetails(request):
     id = request.GET.get("blog")
     context = {
-        "title": "Chaitanya: Vision to impart knowledge",
+        "title": "SOECE: Society Of Electronics And Communications",
         "blogId": id,
         "blog": Blog.objects.filter(id=id)[0],
         "comments": Comment.objects.filter(blogId=id),
@@ -39,7 +42,7 @@ def addComment(request):
     comment.save()
 
     context = {
-        "title": "Chaitanya: Vision to impart knowledge",
+        "title": "SOECE: Society Of Electronics And Communications",
         "blogId": id,
         "blog": Blog.objects.filter(id=id)[0],
         "comments": Comment.objects.filter(blogId=id),
@@ -58,7 +61,7 @@ def deleteComment(request):
     blog.save()
 
     context = {
-        "title": "Chaitanya: Vision to impart knowledge",
+        "title": "SOECE: Society Of Electronics And Communications",
         "blogId": id,
         "blog": Blog.objects.filter(id=id)[0],
         "comments": Comment.objects.filter(blogId=id),
