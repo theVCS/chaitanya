@@ -10,4 +10,7 @@ urlpatterns = [
     path('getResult/', views.getResult, name='getResult'),
     path('getPrevResult/', views.getPrevResult, name='getPrevResult'),
     path('getNextResult/', views.getNextResult, name='getNextResult'),
+    path('searchKeyword/', views.searchKeyword, name='searchKeyword'),
+    path('getPrevResultSearchKeyword/', views.getPrevResultSearchKeyword, name='getPrevResultSearchKeyword'),
+    path('getNextResultSearchKeyword/', views.getNextResultSearchKeyword, name='getNextResultSearchKeyword'),
 ]

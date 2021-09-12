@@ -64,11 +64,11 @@
                         <div class="dropdown-menu" style="max-height: 300px; overflow-y: scroll;">
                             {%for i in pages%}
                             {%if i == page%}
-                            <a class="dropdown-item" href="/contest/getResult/?contest={{contestId}}&page={{i}}"
+                            <a class="dropdown-item" href="/contest/searchKeyword/?contestId={{contestId}}&page={{i}}&key={{key}}"
                                 id="thisIsThePage">{{i}}</a>
                             {%else%}
                             <a class="dropdown-item"
-                                href="/contest/getResult/?contest={{contestId}}&page={{i}}">{{i}}</a>
+                                href="/contest/searchKeyword/?contestId={{contestId}}&page={{i}}&key={{key}}">{{i}}</a>
                             {%endif%}
                             {%endfor%}
                         </div>
@@ -83,18 +83,20 @@
                         <form class="input-group" method="GET" action="/contest/searchKeyword/">
                             {%csrf_token%}
                             <div class="form-outline">
-                                <input type="search" class="form-control" placeholder="search your keyword" name="key">                            </div>
-                                <input type="hidden" name="contestId" value="{{contestId}}">                            </div>
-                            <button class="btn site-button green" onclick="this.SubmitEvent()">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form>
+                                <input type="search" class="form-control" name="key"
+                                    value="{{key}}"> </div>
+                            <input type="hidden" name="contestId" value="{{contestId}}">
                     </div>
+                    <button class="btn site-button green" onclick="this.SubmitEvent()">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    </form>
                 </div>
             </div>
         </div>
-
     </div>
+
+</div>
 </div>
 
 
@@ -143,7 +145,7 @@
             <div class="col-lg-12 post card-container">
                 <div class="sort-title clearfix text-center">
                     {%if left%}
-                    <a href="/contest/getPrevResult/?contest={{contestId}}&page={{page}}"
+                    <a href="/contest/getPrevResultSearchKeyword/?contestId={{contestId}}&page={{page}}&key={{key}}"
                         class="site-button green m-r15" type="button"><i class="fa fa-arrow-left"></i> Prev</a>
                     {%else%}
                     <button class="site-button red m-r15" type="button"><i class="fa fa-arrow-left"></i> Prev</button>
@@ -152,7 +154,7 @@
                     <button class="site-button red m-r15" type="button">{{page}}</button>
 
                     {%if right%}
-                    <a href="/contest/getNextResult/?contest={{contestId}}&page={{page}}"
+                    <a href="/contest/getNextResultSearchKeyword/?contestId={{contestId}}&page={{page}}&key={{key}}"
                         class="site-button green m-r15" type="button">Next <i class="fa fa-arrow-right"></i></a>
                     {%else%}
                     <button class="site-button red m-r15" type="button">Next <i class="fa fa-arrow-right"></i></button>

@@ -6,6 +6,7 @@ from django.apps import apps
 from pandas.core.indexes.base import Index
 from .models import Contest, Comment
 import pandas as pd
+import pandasql as psql
 # Create your views here.
 
 
@@ -233,7 +234,7 @@ def getNextResult(request):
     # getting data frame and sorting it
     contest = Contest.objects.get(pk=id)
     df = pd.read_csv(contest.result)
-    page = min(page,df.shape[0])
+    page = min(page,int((df.shape[0]+9)/10))
     # finding the number of pages [1, ceil(total_data/10)]
     context["pages"] = range(1, int((df.shape[0] + 9)/10)+1)
 
@@ -273,3 +274,258 @@ def getNextResult(request):
 
     # return HttpResponse(json.dumps(context))
     return render(request, "contests/result.html",context)
+
+
+def searchKeyword(request):
+    page = 1
+    key = request.GET.get("key")
+    contestId = request.GET.get("contestId")
+    
+    try:
+     key = key.split("'")[0]
+    except:
+        pass
+
+    try:
+        page = int(request.GET.get("page"))
+    except:
+        pass
+
+    # context data
+    context = {
+        "title": "SOECE: Society Of Electronics And Communications",
+        "columns": ["Index", ], # will contain the columns in the dataframe
+        "left": 1, # true if going to prev page is possible
+        "right": 1, # true if going to next page is possible
+        "contestId": contestId, # the id of the contest
+        "page": page,
+        "key": key,
+    }
+        
+    # getting data frame and sorting it
+    contest = Contest.objects.get(pk=contestId)
+    df = pd.read_csv(contest.result)
+
+    #querying the data
+    query = "select * from df where "
+    flag = True
+
+    for column in df.columns:
+        cond = "`{}` like '%{}%'".format(column, key)
+        if flag:
+            query = query + " " + cond
+        else:
+            query = query + " or " + cond
+        flag = False
+
+    df =  psql.sqldf(query)
+    ###################
+
+    context["pages"] = range(1, int((df.shape[0] + 9)/10)+1)
+    
+    # setting left and right pointer
+    left = (page - 1) * 10
+    right = (page * 10)
+    right = min(df.shape[0], right)
+
+    # if left zero then not possible to go to prev
+    if left == 0:
+        context["left"] = 0
+    # if right is the end of data then not possible to
+    if right == df.shape[0]:
+        context["right"] = 0
+
+    df = df[left:right]
+
+
+    # storing the data of the contestants
+    lst = []
+
+    for i in range(left+1,right+1):
+        lst.append([i])
+
+    for col in df.columns:
+        context["columns"].append(col) # storing the column names
+
+        index = 0
+        
+        for val in df[col]:
+            lst[index].append(val)
+            index += 1
+
+    context["result"] = lst
+    ####################################
+
+    # return HttpResponse(json.dumps(context))
+    return render(request, "contests/searching.html",context)
+
+def getPrevResultSearchKeyword(request):
+    page = 1
+    key = request.GET.get("key")
+    contestId = request.GET.get("contestId")
+    
+    
+    try:
+     key = key.split("'")[0]
+    except:
+        pass
+
+    try:
+        page = int(request.GET.get("page")) - 1
+    except:
+        pass
+
+    page = max(page,1)
+
+    # context data
+    context = {
+        "title": "SOECE: Society Of Electronics And Communications",
+        "columns": ["Index", ], # will contain the columns in the dataframe
+        "left": 1, # true if going to prev page is possible
+        "right": 1, # true if going to next page is possible
+        "contestId": contestId, # the id of the contest
+        "page": page,
+        "key": key,
+    }
+        
+    # getting data frame and sorting it
+    contest = Contest.objects.get(pk=contestId)
+    df = pd.read_csv(contest.result)
+
+    #querying the data
+    query = "select * from df where "
+    flag = True
+
+    for column in df.columns:
+        cond = "`{}` like '%{}%'".format(column, key)
+        if flag:
+            query = query + " " + cond
+        else:
+            query = query + " or " + cond
+        flag = False
+
+    df =  psql.sqldf(query)
+    ###################
+
+    context["pages"] = range(1, int((df.shape[0] + 9)/10)+1)
+    
+    # setting left and right pointer
+    left = (page - 1) * 10
+    right = (page * 10)
+    right = min(df.shape[0], right)
+
+    # if left zero then not possible to go to prev
+    if left == 0:
+        context["left"] = 0
+    # if right is the end of data then not possible to
+    if right == df.shape[0]:
+        context["right"] = 0
+
+    df = df[left:right]
+
+
+    # storing the data of the contestants
+    lst = []
+
+    for i in range(left+1,right+1):
+        lst.append([i])
+
+    for col in df.columns:
+        context["columns"].append(col) # storing the column names
+
+        index = 0
+        
+        for val in df[col]:
+            lst[index].append(val)
+            index += 1
+
+    context["result"] = lst
+    ####################################
+
+    # return HttpResponse(json.dumps(context))
+    return render(request, "contests/searching.html",context)
+
+def getNextResultSearchKeyword(request):
+    page = 1
+    key = request.GET.get("key")
+    contestId = request.GET.get("contestId")
+    
+        
+    try:
+     key = key.split("'")[0]
+    except:
+        pass
+    
+    try:
+        page = int(request.GET.get("page")) + 1
+    except:
+        pass
+
+    # context data
+    context = {
+        "title": "SOECE: Society Of Electronics And Communications",
+        "columns": ["Index", ], # will contain the columns in the dataframe
+        "left": 1, # true if going to prev page is possible
+        "right": 1, # true if going to next page is possible
+        "contestId": contestId, # the id of the contest
+        "page": page,
+        "key": key,
+    }
+        
+    # getting data frame and sorting it
+    contest = Contest.objects.get(pk=contestId)
+    df = pd.read_csv(contest.result)
+
+    #querying the data
+    query = "select * from df where "
+    flag = True
+
+    for column in df.columns:
+        cond = "`{}` like '%{}%'".format(column, key)
+        if flag:
+            query = query + " " + cond
+        else:
+            query = query + " or " + cond
+        flag = False
+
+    df =  psql.sqldf(query)
+    ###################
+
+    context["pages"] = range(1, int((df.shape[0] + 9)/10)+1)
+    page = min(page,int((df.shape[0] + 9)/10))
+    
+    # setting left and right pointer
+    left = (page - 1) * 10
+    right = (page * 10)
+    right = min(df.shape[0], right)
+
+    # if left zero then not possible to go to prev
+    if left == 0:
+        context["left"] = 0
+    # if right is the end of data then not possible to
+    if right == df.shape[0]:
+        context["right"] = 0
+
+    df = df[left:right]
+
+
+    # storing the data of the contestants
+    lst = []
+
+    for i in range(left+1,right+1):
+        lst.append([i])
+
+    for col in df.columns:
+        context["columns"].append(col) # storing the column names
+
+        index = 0
+        
+        for val in df[col]:
+            lst[index].append(val)
+            index += 1
+
+    context["result"] = lst
+    ####################################
+
+    # return HttpResponse(json.dumps(context))
+    return render(request, "contests/searching.html",context)
