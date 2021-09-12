@@ -10,7 +10,7 @@ class Blog(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     heading = models.CharField(max_length=50, verbose_name='Heading')
     details = models.TextField(verbose_name="Details")
-    img = models.ImageField(upload_to="static/images/blog")
+    img = models.ImageField(upload_to="static/media/blogs/")
     time = models.DateTimeField(default=datetime.now)
     commentsCnt = models.IntegerField(verbose_name="Comments Count",default=0)
 

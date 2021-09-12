@@ -25,4 +25,5 @@ urlpatterns = [
     path('home/',include('home.urls')),
     path('newsletters/',include('newsletters.urls')),
     path('blogs/',include('blog.urls')),
+    path('contest/',include('contest.urls')),
 ]

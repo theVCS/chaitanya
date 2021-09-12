@@ -9,6 +9,7 @@ import pytz
 
 Blog = apps.get_model('blog', 'Blog')
 Newsletter = apps.get_model('newsletters', 'Newsletter')
+Contest = apps.get_model('contest', 'Contest')
 
 # Create your views here.
 
@@ -36,7 +37,7 @@ def gallery(request):
 
 
 def notifications(request):
-    utc=pytz.UTC
+    utc = pytz.UTC
 
     context = {}
     context["blogs"] = []
@@ -44,6 +45,7 @@ def notifications(request):
 
     lmt_from_blog = 10
     lmt_from_newsletter = 10
+    lmt_from_contest = 10
 
     blog = Blog.objects.order_by('-pk')
     lmt_from_blog = min(lmt_from_blog, blog.count())
@@ -53,6 +55,10 @@ def notifications(request):
     lmt_from_newsletter = min(lmt_from_newsletter, newsletter.count())
     newsletter = newsletter[:lmt_from_newsletter]
 
+    contest = Contest.objects.order_by('-pk')
+    lmt_from_contest = min(lmt_from_contest, contest.count())
+    contest = contest[:lmt_from_newsletter]
+
     now = utc.localize(datetime.now())
 
     for b in blog:
@@ -60,18 +66,32 @@ def notifications(request):
         data["heading"] = b.heading
         data["url"] = "blogs/details/?blog=" + str(b.pk)
         diff = (now - b.time).days
-        
+
         if diff < 10:
             data["new"] = 1
         else:
             data["new"] = 0
 
         context["blogs"].append(data)
-    
+
     for n in newsletter:
         data = {}
         data["heading"] = n.heading
         data["url"] = "newsletters/details?newsletter=" + str(n.pk)
+
+        diff = (now - n.time).days
+
+        if diff < 10:
+            data["new"] = 1
+        else:
+            data["new"] = 0
+
+        context["newsletters"].append(data)
+
+    for n in contest:
+        data = {}
+        data["heading"] = n.heading
+        data["url"] = "contest/details/?contest=" + str(n.pk)
 
         diff = (now - n.time).days
 

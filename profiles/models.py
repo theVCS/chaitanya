@@ -11,7 +11,7 @@ class Profile(models.Model):
     lastName = models.CharField(blank=True, max_length=30, verbose_name='Last Name')
     email = models.EmailField(unique=True, verbose_name='Email ID')
     phone = models.CharField(max_length=13)
-    resume = models.FileField(upload_to="media/resume")
+    resume = models.FileField(upload_to="static/media/resume")
 
     def __str__(self):
         return self.user.username

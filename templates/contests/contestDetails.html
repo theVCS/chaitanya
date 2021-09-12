@@ -1,0 +1,173 @@
+{% extends 'home/basic.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+
+
+{% block css %}{%endblock%}
+
+{%block header%}
+<header class="site-header mo-left header">
+	<div class="sticky-header main-bar-wraper header-curve navbar-expand-lg">
+		<div class="main-bar clearfix bg-primary">
+			<div class="container clearfix">
+				<!-- website logo -->
+				<div class="logo-header mostion">
+					<a href="/"><img src="{%static 'images/logo.png'%}" alt="" style="height: 72px; width: 72px;"></a>
+				</div>
+
+				<!-- main nav -->
+				<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+					<div class="logo-header d-md-block d-lg-none">
+						<a href="/"><img src="{%static 'images/logo.png'%}" alt=""></a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li> <a href="/">Home</a></li>
+						<li> <a href="/newsletters">Newsletters</a></li>
+                        <li> <a href="/contest">Contests</a></li>
+						{%if user.is_authenticated%}
+						<li> <a href="/accounts/logout">Logout</a></li>
+						{%else%}
+						<li> <a href="/accounts">Signup</a></li>
+						<li> <a href="/accounts/login">Login</a></li>
+						{%endif%}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+{%endblock%}
+
+
+{% block body%}
+<!-- Content -->
+<div class="page-content bg-white">
+
+    <div class="content-area">
+        <div class="container max-w900">
+
+            <!-- blog -->
+            <div class="blog-post blog-single">
+                <div class="dlab-post-meta m-b20">
+                    <ul>
+                        <li class="post-date"> <strong>{{contest.time.day}}
+                                {{contest.time|date:"M" }}</strong> <span> {{contest.time.year}}</span> </li>
+                        <li class="post-author"> By <a href="javascript:void(0);">{{contest.owner}}</a> </li>
+                    </ul>
+                </div>
+                <div class="dlab-post-title">
+                    <h4 class="post-title m-t0"><a href="javascript:void(0);">{{contest.heading}}</a></h4>
+                </div>
+                <div class="dlab-post-media dlab-img-effect zoom-slow">
+                    <a href="blog-single.html"><img src="/{{contest.img}}" alt=""></a>
+                </div>
+                <div class="dlab-post-text">
+                    <p>{{contest.details}}</p>
+                </div>
+            </div>
+
+            <!-- comment section -->
+            <div class="clear" id="comment-list">
+                <div class="comments-area" id="comments">
+                    <h2 class="comments-title">{{contest.commentsCnt}} Comments</h2>
+                    <div class="clearfix">
+                        <!-- comment list END -->
+                        <ol class="comment-list">
+                            {%for comment in comments%}
+                            <li class="comment">
+                                <div class="comment-body">
+                                    <div class="comment-author vcard"> <img class="avatar photo"
+                                            src="{%static 'images/avatar.jpg'%}" alt=""> <cite
+                                            class="fn">{{comment.owner}}</cite>
+                                        <span class="says">says:</span> </div>
+                                    <div class="comment-meta"> <a href="javascript:void(0);">{{comment.time|date:"F" }} {{comment.time.day}}, {{comment.time.year}} at {{comment.time.time}}
+                                            </a> </div>
+                                    <p>{{comment.details}}</p>
+                                    
+                                    {%if user.is_authenticated%}
+                                    {%if user == comment.owner%}
+                                    <div class="reply"> <a href="/contest/deleteComment?id={{comment.id}}&contestId={{contestId}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a> </div>
+                                    {%endif%}
+                                    {%endif%}
+                                </div>
+                            </li>
+                            {%endfor%}
+                        </ol>
+                        
+                        <!-- Posting Comment -->
+                        {% if user.is_authenticated %}
+                        <div class="comment-respond" id="respond">
+                            <h4 class="comment-reply-title" id="reply-title">Leave a Reply </h4>
+                            <form class="comment-form" id="commentform" method="post"
+                                action="/contest/addComment/">
+                                {%csrf_token%}
+                                <input type="hidden" name="contestId" value="{{contestId}}">
+                                <input type="hidden" name="user" value="{{user}}">
+                                <p class="comment-form-comment">
+                                    <label for="comment">Comment</label>
+                                    <textarea rows="8" name="comment" placeholder="Comment" id="comment"></textarea>
+                                </p>
+                                <p class="form-submit">
+                                    <input type="submit" value="Post Comment" class="submit" id="submit" name="submit">
+                                </p>
+                            </form>
+                        </div>
+                        {%endif%}
+                        <!-- Form END -->
+                    </div>
+                </div>
+            </div>
+            <!-- blog END -->
+        </div>
+    </div>
+</div>
+
+{%if resultUploaded%}
+<div class="section-full content-inner bg-gray bg-img-fix overlay-black-dark">		
+    <div class="container">
+        <div class="row">			
+            <div class="col-lg-12 post card-container">
+                <div class="sort-title clearfix text-white text-center">
+                    <a href="/contest/getResult?contest={{contestId}}" class="site-button orange radius-xl  m-r15" type="button" target="_blank">Check Result</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endif%}
+
+{%endblock%}
+
+
+{% block footer%}
+<!-- Footer -->
+<footer class="site-footer footer-full">
+	<div class="p-tb60 bg-black">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 text-md-left text-center footer-logo">
+					<img src="{%static 'images/logo.png'%}" alt="" width="100">
+					<p class="m-b0 m-t10">Copyright © 2021</p>
+				</div>
+				<div class="col-md-6 text-md-right text-center">
+					<div class="widget-link ">
+						<p>
+							Developed By
+							<a target="_blank" href="https://www.linkedin.com/in/prince-mishra-7379101ab/">Prince Mishra</a>, and
+							<a target="_blank" href="https://www.linkedin.com/in/nishant-6013b61a3/">Nishant</a>
+						</p>
+						<p>
+							Idea by
+							<a target="_blank" href="https://www.linkedin.com/in/sourav-goyal-61b469196/">Sourav Goyal</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- Footer END -->
+{%endblock%}
+
+
+{% block script %}{%endblock%}

@@ -31,6 +31,7 @@
 						<li> <a href="/">Home</a></li>
 						<li> <a href="/blogs">Blogs</a></li>
 						<li> <a href="/newsletters">Newsletters</a></li>
+						<li> <a href="/contest">Contests</a></li>
 						{%if user.is_authenticated%}
 						<li> <a href="/accounts/logout">Logout</a></li>
 						{%else%}
@@ -325,7 +326,7 @@
 				<div class="section-content box-sort-in m-b10 p-b0 button-example">
 					<div class="max-w1200 m-auto">
 						<ul class="list-star reverse list-box "
-							style="height: 400px; overflow-y: scroll; overflow-x: hidden;" id="notifications">
+							style="max-height: 400px; overflow-y: scroll; overflow-x: hidden;" id="notifications">
 						</ul>
 					</div>
 				</div>

@@ -1,0 +1,133 @@
+{% extends 'home/basic.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+
+
+{% block css %}{%endblock%}
+
+{%block header%}
+<header class="site-header mo-left header">
+	<div class="sticky-header main-bar-wraper header-curve navbar-expand-lg">
+		<div class="main-bar clearfix bg-primary">
+			<div class="container clearfix">
+				<!-- website logo -->
+				<div class="logo-header mostion">
+					<a href="/"><img src="{%static 'images/logo.png'%}" alt="" style="height: 72px; width: 72px;"></a>
+				</div>
+
+				<!-- main nav -->
+				<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+					<div class="logo-header d-md-block d-lg-none">
+						<a href="/"><img src="{%static 'images/logo.png'%}" alt=""></a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li> <a href="/">Home</a></li>
+						<li> <a href="/newsletters">Newsletters</a></li>
+						{%if user.is_authenticated%}
+						<li> <a href="/accounts/logout">Logout</a></li>
+						{%else%}
+						<li> <a href="/accounts">Signup</a></li>
+						<li> <a href="/accounts/login">Login</a></li>
+						{%endif%}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+{%endblock%}
+
+
+{% block body%}
+<div class="section-full bg-white content-inner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="sort-title clearfix text-center">
+					<h4>All Contests</h4>
+				</div>
+				<!-- blog post Carousel with no margin -->
+				<div class="section-content box-sort-in m-b30 button-example">
+					<div
+						class="blog-carousel mfp-gallery owl-loaded owl-theme owl-carousel gallery owl-btn-center-lr owl-btn-1 primary">
+
+						{% for contest in contests %}
+						<div class="item">
+							<div class="ow-blog-post date-style-2">
+								<div class="ow-post-media dlab-img-effect zoom-slow">
+									<img src="/{{contest.img}}" alt="" style="width: 420px; height: 260px;">
+								</div>
+								<div class="ow-post-info">
+									<div class="ow-post-title">
+										<h4 class="post-title"> <a target="_blank" href="details?contest={{contest.id}}"
+												title="Video post">{{contest}}</a> </h4>
+									</div>
+									<div class="ow-post-meta">
+										<ul>
+											<li class="post-date"> <i
+													class="ti-comment-alt"></i><strong>{{contest.time.day}}
+													{{contest.time|date:"M" }}</strong> <span> {{contest.time.year}}</span>
+											</li>
+											<li class="post-author"><i class="ti-user"></i>By <a
+													href="javascript:void(0);" title="Posts by demongo"
+													rel="author">{{contest.owner}}</a> </li>
+											<li class="post-comment"><i class="ti-comment-alt"></i> <a
+													href="javascript:void(0);"
+													class="comments-link">{{contest.commentsCnt}} Comment</a> </li>
+										</ul>
+									</div>
+									<div class="ow-post-text">
+										<p>{{contest.heading}}</p>
+									</div>
+									<div class="ow-post-readmore "> <a target="_blank" href="details?contest={{contest.id}}"
+											title="READ MORE" rel="bookmark" class=" site-button-link"> READ MORE <i
+												class="fa fa-angle-double-right"></i></a> </div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- blog post Carousel with no margin END -->
+</div>
+
+
+{%endblock%}
+
+
+{% block footer%}
+<!-- Footer -->
+<footer class="site-footer footer-full">
+	<div class="p-tb60 bg-black">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 text-md-left text-center footer-logo">
+					<img src="{%static 'images/logo.png'%}" alt="" width="100">
+					<p class="m-b0 m-t10">Copyright © 2021</p>
+				</div>
+				<div class="col-md-6 text-md-right text-center">
+					<div class="widget-link ">
+						<p>
+							Developed By
+							<a target="_blank" href="https://www.linkedin.com/in/prince-mishra-7379101ab/">Prince Mishra</a>, and
+							<a target="_blank" href="https://www.linkedin.com/in/nishant-6013b61a3/">Nishant</a>
+						</p>
+						<p>
+							Idea by
+							<a target="_blank" href="https://www.linkedin.com/in/sourav-goyal-61b469196/">Sourav Goyal</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- Footer END -->
+{%endblock%}
+
+
+{% block script %}{%endblock%}

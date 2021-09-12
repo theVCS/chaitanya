@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class Gallery(models.Model):
-    img = models.ImageField(upload_to="static/images/home/gallery")
+    img = models.ImageField(upload_to="static/media/gallery/")
     time = models.DateTimeField(default=datetime.now)
     
     def __str__(self):

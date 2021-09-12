@@ -130,7 +130,7 @@ def createAccount(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         otp = random_with_N_digits(6)
-        send_mail("Thanks for joining Chaintanya", otp, [email, ])
+        send_mail("Thanks for joining SOECE", otp, [email, ])
         context = {
             "title": "SOECE: Society Of Electronics And Communications",
             "username": username,
